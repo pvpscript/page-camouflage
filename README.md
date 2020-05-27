@@ -1,6 +1,10 @@
 # page-camouflage
 A tampermonkey script to hide a page's content
 
+# Disclaimer
+This is just a silly remake of a script I made many years ago, and I tought
+it would be funny to remake it and create a `how-to` :P
+
 ## What does it do?
 This script will hide the content of the page you are currently navigating
 on by hiding the original body and placing another page's content above it.
