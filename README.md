@@ -3,7 +3,7 @@ A tampermonkey script to hide a page's content
 
 # Disclaimer
 This is just a silly remake of a script I made many years ago, and I tought
-it would be funny to remake it and create a `how-to` :P
+it would be funny to write it again and explain how to use it.
 
 ## What does it do?
 This script will hide the content of the page you are currently navigating
@@ -15,24 +15,54 @@ certain page `A`, but you actually are navigating on a certaing page `B`.
 
 ## Setting up
 The usage is pretty straightforward, just follow the steps below.
-1. In this repository, go to the src folder, select the `script.js` and click
-on `raw`;
-2. Select the whole script and copy it to the clipboard;
-3. Click on the `Tampermonkey` icon at the top right of your brower;
-4. Click the `+ Create a new script` button;
-5. A window will appear with an example script, erase it and paste what you
+1. First and foremost: Install the `Tampermonkey` extension on your navigator.
+2. Now, in this repository, go to the `src` folder, select the file called
+`script.js`, click it, and then click on `raw`;
+![alt text][raw]
+3. Select the whole script and copy it to the clipboard;
+4. Click on the `Tampermonkey` icon at the top right of your browser;
+5. Click the `+ Create a new script` button;
+![alt text][new_script]
+6. A window will appear with an example script, erase it and paste what you
 just copied;
-6. Hit `Ctrl + S`;
-7. Make sure the script is turned on.
+7. Hit `Ctrl + S`;
+8. Make sure Tampermonkey is turned on and the script is running.
 
 ## Usage
+Capture `page A` and hide `page B` by putting `page A`'s content above it!
+
+### Capturing
+First, it's necessary to capture a page that will serve as a façade. To do
+this, go to any website and wait the page to finish loading. After that,
+follow those steps:
+
+1. Hold `Ctrl + Shift`;
+2. Press `Left click` anywhere on the page while holding the keys from step 1.
+3. A window will prompt to define a password. The password inserted will be
+used further to *go back* to where you were in the target page before hiding
+it. This field can be left blank if you wish by just press either `OK` or
+`Cancel`.
+
+**Done!** Now the current page is copied. Let's move to the hiding process.
+
 ### Hiding
-To fire up the script, hold `Ctrl + Shift + Alt` and click anywhere on the
-page you are currently in. This will replace the screen content with the
-website provided to the script during the **set up** process.
+To hide a page, it is necessary to have captured a page to work as disguise.
+If the above conditions were fulfilled, do the following:
+1. Hold `Ctrl + Alt`;
+2. Press `Left click` anywhere on the page while holding the keys from step 1.
+
+**Done!** The current page should look like the captured page now!
 
 ### Going back
-To go back to where you were, just do the same thing as before: hold
-`Ctrl + Shift + Alt` and click anywhere. This time, a prompt window will popup
-asking for the password that was set up. Once the password is put correctly,
-the page will go back to normal.
+To go back to the original page after a hide operation was successfully,
+executed follow the steps below:
+1. Hold `Shift + Alt`;
+2. Press `Left click` anywhere on the page while holding the keys from step 1.
+3. A window will appear prompting an unlock password, the same that was
+defined during the `Capturing` process. Enter the defined password, or leave
+it blank for no password, and press `OK`.
+
+**Done!** The original page should appear again just the way you left it!
+
+## Demonstration
+Demonstrate it with gifs
