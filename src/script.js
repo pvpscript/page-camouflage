@@ -39,6 +39,10 @@
                     i.href = i.href;
                 }
             }
+            const regex = RegExp(/(.*?)url\((?!((?:[a-zA-Z]+:)\/\/(?:\/)?))(.*?)\)(.*)/gi);
+            for (let i of dummyHtml.getElementsByTagName("style")) {
+                i.innerHTML = i.innerHTML.replace(regex, "$1url(" + window.location.origin + "$3)$4");
+            }
             await GM.setValue("page-capture", JSON.stringify(dummyHtml.outerHTML));
             const passwd = prompt("Type a password to unlock the original page.");
             await GM.setValue("page-passwd", (passwd != null && passwd != "") ? passwd : "");
