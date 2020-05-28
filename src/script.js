@@ -51,8 +51,8 @@
             await GM.setValue("page-passwd", (passwd != null && passwd != "") ? passwd : "");
             console.log("Page captured");
         } else if (e.ctrlKey && e.altKey) {
-            localStorage.setItem("page-title", document.title);
-            localStorage.setItem("page-favicon", getFavicon());
+            sessionStorage.setItem("page-title", document.title);
+            sessionStorage.setItem("page-favicon", getFavicon());
 
             await GM.getValue("page-capture", null).then((val) => {
                 if (val != null) {
@@ -64,23 +64,23 @@
                     window.dummyHtml.innerHTML = JSON.parse(val);
                     document.documentElement.appendChild(window.dummyHtml);
                 }
-                localStorage.setItem("page-capture", val);
+                sessionStorage.setItem("page-capture", val);
             });
             await GM.getValue("page-passwd", null).then((val) => {
-                localStorage.setItem("page-passwd", val);
+                sessionStorage.setItem("page-passwd", val);
             });
         } else if (e.shiftKey && e.altKey) {
             //if (window.res != undefined) {
             const passwd = prompt("Insert password.");
-            if (localStorage.getItem("page-passwd") == passwd) {
+            if (sessionStorage.getItem("page-passwd") == passwd) {
                 document.documentElement.removeChild(window.dummyHtml);
                 //window.res.forEach(e => document.body.appendChild(e));
                 document.body.style.display = "";
-                document.title = localStorage.getItem("page-title");
+                document.title = sessionStorage.getItem("page-title");
 
                 const favicon = document.createElement("link");
                 favicon.rel = "icon";
-                favicon.href = localStorage.getItem("page-favicon");
+                favicon.href = sessionStorage.getItem("page-favicon");
                 document.body.appendChild(favicon);
             }
             //}
