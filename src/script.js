@@ -11,14 +11,6 @@
 
 (async function() {
     'use strict';
-    /*
-    // Hide page
-    res = Array.from(document.body.childNodes);
-    res.forEach(e => document.body.removeChild(e));
-    
-    // Unhide page
-    res.forEach(e => document.body.appendChild(e));
-    */
 
     function getFavicon() {
         const favicon = document.querySelector("link[rel='icon']") ||
@@ -32,7 +24,7 @@
     }
 
     window.onmousedown = async (e) => {
-        if (e.ctrlKey && e.shiftKey) {
+		if (e.ctrlKey && e.shiftKey) {
             const dummyHtml = document.createElement("html");
             dummyHtml.innerHTML = document.documentElement.outerHTML;
             Array.from(document.documentElement.attributes).forEach((e) => {
@@ -58,9 +50,7 @@
             const passwd = prompt("Type a password to unlock the original page.");
             await GM.setValue("page-passwd", (passwd != null && passwd != "") ? passwd : "");
             console.log("Page captured");
-        }
-
-        if (e.ctrlKey && e.altKey) {
+        } else if (e.ctrlKey && e.altKey) {
             localStorage.setItem("page-title", document.title);
             localStorage.setItem("page-favicon", getFavicon());
 
@@ -79,8 +69,7 @@
             await GM.getValue("page-passwd", null).then((val) => {
                 localStorage.setItem("page-passwd", val);
             });
-        }
-        if (e.shiftKey && e.altKey) {
+        } else if (e.shiftKey && e.altKey) {
             //if (window.res != undefined) {
             const passwd = prompt("Insert password.");
             if (localStorage.getItem("page-passwd") == passwd) {
@@ -98,3 +87,4 @@
         }
     };
 })();
+
