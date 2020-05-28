@@ -20,6 +20,17 @@
     res.forEach(e => document.body.appendChild(e));
     */
 
+    function getFavicon() {
+        const favicon = document.querySelector("link[rel='icon']") ||
+              document.querySelector("link[rel='shortcut icon']");
+
+        if (favicon == null) {
+            return window.location.origin + "/favicon.ico";
+        }
+
+        return favicon.href;
+    }
+
     window.onmousedown = async (e) => {
         if (e.ctrlKey && e.shiftKey) {
             const dummyHtml = document.createElement("html");
@@ -46,13 +57,13 @@
             await GM.setValue("page-capture", JSON.stringify(dummyHtml.outerHTML));
             const passwd = prompt("Type a password to unlock the original page.");
             await GM.setValue("page-passwd", (passwd != null && passwd != "") ? passwd : "");
-            await GM.setValue("page-origin", window.location.origin);
             console.log("Page captured");
         }
 
         if (e.ctrlKey && e.altKey) {
-            const pageOrigin = await GM.getValue("page-origin");
-            console.log("Page Origin: " + pageOrigin);
+            localStorage.setItem("page-title", document.title);
+            localStorage.setItem("page-favicon", getFavicon());
+
             await GM.getValue("page-capture", null).then((val) => {
                 if (val != null) {
                     //window.res = Array.from(document.body.childNodes);
@@ -76,6 +87,12 @@
                 document.documentElement.removeChild(window.dummyHtml);
                 //window.res.forEach(e => document.body.appendChild(e));
                 document.body.style.display = "";
+                document.title = localStorage.getItem("page-title");
+
+                const favicon = document.createElement("link");
+                favicon.rel = "icon";
+                favicon.href = localStorage.getItem("page-favicon");
+                document.body.appendChild(favicon);
             }
             //}
         }
