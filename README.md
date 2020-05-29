@@ -75,8 +75,8 @@ it blank for no password, and press `OK`.
 **Done!** The original page should appear again just the way you left it!
 
 ## Demonstration
-[uncaptured]: https://i.imgur.com/MEUX3ns.gif "Uncaptured" 
-[captured]: https://i.imgur.com/h0W2jNp.gif "Captured"
+[uncaptured]: /images/without_capture.gif "Uncaptured" 
+[captured]: /images/with_capture.gif "Captured"
 ### Uncaptured
 ![alt text][uncaptured]
 Example of a page hide without capturing another page.
