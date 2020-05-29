@@ -36,7 +36,7 @@
 			"    border-radius: 50%;" +
 			"    width: 120px;" +
 			"    height: 120px;" +
-            "    margin: inherit;" +
+			"    margin: inherit;" +
 			"    animation: spin 2s ease-in-out infinite;" +
 			"}" +
 			"@keyframes spin {" +
@@ -81,14 +81,17 @@
                 i.innerHTML = i.innerHTML.replace(regex, "$1url(" + window.location.origin + "$3)$4");
             }
             await GM.setValue("page-capture", JSON.stringify(dummyHtml.outerHTML));
+			await GM.setValue("page-title", document.title);
             const passwd = prompt("Type a password to unlock the original page.");
             await GM.setValue("page-passwd", (passwd != null && passwd != "") ? passwd : "");
             console.log("Page captured");
         } else if (e.ctrlKey && e.altKey) {
-            sessionStorage.setItem("page-title", document.title);
+            sessionStorage.setItem("orig-page-title", document.title);
             sessionStorage.setItem("page-favicon", getFavicon());
 
             await GM.getValue("page-capture", null).then(async (val) => {
+				document.title = await GM.getValue("page-title", "-");
+
                 if (val != null && !window.loadingFacade) {
                     //window.res = Array.from(document.body.childNodes);
                     //window.res.forEach(e => document.body.removeChild(e));
@@ -119,7 +122,7 @@
 					document.documentElement.removeChild(window.dummyHtml);
 					//window.res.forEach(e => document.body.appendChild(e));
 					document.body.style.display = "";
-					document.title = sessionStorage.getItem("page-title");
+					document.title = sessionStorage.getItem("orig-page-title");
 
 					const favicon = document.createElement("link");
 					favicon.rel = "icon";
@@ -128,10 +131,10 @@
 				}
 			} else {
 				document.body.style.display = "";
+				document.title = sessionStorage.getItem("orig-page-title");
 				document.documentElement.removeChild(window.pageLoader);
                 window.loadingFacade = false;
 			}
         }
     };
 })();
-
