@@ -75,15 +75,17 @@ it blank for no password, and press `OK`.
 **Done!** The original page should appear again just the way you left it!
 
 ## Demonstration
+[uncaptured][https://i.imgur.com/MEUX3ns.gif]
+[captured][https://i.imgur.com/h0W2jNp.gif]
 ### Uncaptured
-Gif with uncaptured page.
+![alt text][uncaptured]
+Example of a page hide without capturing another page.
 
 ### Captured
-Gif with captured page.
-Demonstrate it with gifs
+![alt text][captured]
+Example of a page hide using another page as disguise.
 
 ## Drawbacks
 This script won't make changes to the `url` at the web browser url bar since
 this is not possible, which means that it ~~won't hide porn~~ only hides so
 much of the page.
-it only hides so much of the page.
