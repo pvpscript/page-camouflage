@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         page-camouflage
 // @namespace    http://tampermonkey.net/ @version      0.1
-// @description  try to take over the world!
-// @author       You
+// @description  Hide a web page by capturing another page.
+// @author       pvpscript
 // @match        *://*/*
 // @grant        GM.setValue
 // @grant        GM.getValue
