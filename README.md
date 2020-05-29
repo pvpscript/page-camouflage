@@ -21,6 +21,8 @@ For whatever reason you want other people to think you are navigating on a
 certain `page A`, when you actually are navigating on a certaing `page B`.
 
 ## Setting up
+[raw]: /images/raw.png "Raw file github"
+[newscript]: /images/new_script.png "New script Tampermonkey"
 The usage is pretty straightforward, just follow the steps below.
 1. First and foremost: Install the `Tampermonkey` extension on your navigator.
 2. Now, in this repository, go to the `src` folder, select the file called
@@ -29,7 +31,7 @@ The usage is pretty straightforward, just follow the steps below.
 3. Select the whole script and copy it to the clipboard;
 4. Click on the `Tampermonkey` icon at the top right of your browser;
 5. Click the `+ Create a new script` button;
-![alt text][new_script]
+![alt text][newscript]
 6. A window will appear with an example script, erase it and paste what you
 just copied;
 7. Hit `Ctrl + S`;
