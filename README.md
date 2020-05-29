@@ -9,9 +9,16 @@ it would be funny to write it again and explain how to use it.
 This script will hide the content of the page you are currently navigating
 on by hiding the original body and placing another page's content above it.
 
+**Note:** The resulting page will not be a perfect copy of the captured page,
+but a very good version of it for most of the time. Sometimes you won't even
+be able to tell the difference, but other times some elements might appear
+overlapped, mispositioned, or with a different font.
+These errors are more likely to occur when the target page (the one being
+hidden away) has a more strict rule about cross-origin source material.
+
 ## Why?
 For whatever reason you want other people to think you are navigating on a
-certain page `A`, but you actually are navigating on a certaing page `B`.
+certain `page A`, when you actually are navigating on a certaing `page B`.
 
 ## Setting up
 The usage is pretty straightforward, just follow the steps below.
@@ -47,7 +54,10 @@ it. This field can be left blank if you wish by just press either `OK` or
 
 ### Hiding
 To hide a page, it is necessary to have captured a page to work as disguise.
-If the above conditions were fulfilled, do the following:
+If a page wasn't captured, this script will simply make the screen blank
+and put a fake loader.
+
+To proceed, do the following:
 1. Hold `Ctrl + Alt`;
 2. Press `Left click` anywhere on the page while holding the keys from step 1.
 
@@ -65,4 +75,15 @@ it blank for no password, and press `OK`.
 **Done!** The original page should appear again just the way you left it!
 
 ## Demonstration
+### Uncaptured
+Gif with uncaptured page.
+
+### Captured
+Gif with captured page.
 Demonstrate it with gifs
+
+## Drawbacks
+This script won't make changes to the `url` at the web browser url bar since
+this is not possible, which means that it ~~won't hide porn~~ only hides so
+much of the page.
+it only hides so much of the page.
